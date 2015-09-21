@@ -1,6 +1,6 @@
 #include <config.h>
-#include "mbxmlutils/eval.h"
-#include "mbxmlutils/eval_static.h"
+#include "eval.h"
+#include "eval_static.h"
 #include <xercesc/dom/DOMElement.hpp>
 #include <xercesc/dom/DOMNamedNodeMap.hpp>
 #include <xercesc/dom/DOMAttr.hpp>
