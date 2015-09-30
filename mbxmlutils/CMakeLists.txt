@@ -29,6 +29,8 @@ include_directories(${FMATVEC_INCLUDE_DIRS})
 find_package(Boost REQUIRED COMPONENTS system filesystem) 
 include_directories(${Boost_INCLUDE_DIRS})
 
+set(LIBDL "-lboost_system -lboost_filesystem")
+
 ### Check for the xercesc dependency
 find_library(XercesLibrary NAMES xerces-c REQUIRED) 
 include_directories(${XercesLibrary_INCLUDE_DIRS})
@@ -41,7 +43,11 @@ add_subdirectory(mbxmlutilshelper)
 #############################################
 ###  Installing #############################
 #############################################
-###  Install the pkg-config file
+###  Install the pkg-config files
+configure_file("mbxmlutilsbase.pc.in" "mbxmlutilsbase.pc" @ONLY)
+install(FILES       "${CMAKE_CURRENT_BINARY_DIR}/mbxmlutilsbase.pc"
+        DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig")
+
 configure_file("mbxmlutilshelper.pc.in" "mbxmlutilshelper.pc" @ONLY)
 install(FILES       "${CMAKE_CURRENT_BINARY_DIR}/mbxmlutilshelper.pc"
         DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig")

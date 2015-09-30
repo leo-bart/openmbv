@@ -1,7 +1,7 @@
-prefix=@prefix@
-exec_prefix=@exec_prefix@
-libdir=@libdir@
-includedir=@includedir@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
 
 swig_octave=${prefix}/lib/swig/openmbvcppinterface/octave
 swig_python=${prefix}/lib/swig/openmbvcppinterface/python
@@ -9,6 +9,6 @@ swig_python=${prefix}/lib/swig/openmbvcppinterface/python
 Name: openmbvcppinterface
 Description: A library to create OpenMBV input files.
 Requires: hdf5serie mbxmlutilshelper
-Version: @VERSION@
+Version: @openmbvcppinterface_VERSION@
 Libs: -L${libdir} -lopenmbvcppinterface
 Cflags: -I${includedir} @DEFINES@
